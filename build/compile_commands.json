@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/lorenzo/programming/projects/c++/glTestBed/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7    -g   -o CMakeFiles/glTestBed.dir/main.cpp.o -c /home/lorenzo/programming/projects/c++/glTestBed/main.cpp",
+  "file": "/home/lorenzo/programming/projects/c++/glTestBed/main.cpp"
+}
+]
