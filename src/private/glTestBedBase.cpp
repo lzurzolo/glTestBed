@@ -41,17 +41,16 @@ void glTestBedBase::renderLoop()
 {
     while(!glfwWindowShouldClose(window))
     {
-        glfwPollEvents();
         glfwSwapBuffers(window);
+        glfwPollEvents();
     }
+    glfwTerminate();
 }
 
-int main(int argc, char const *argv[])
+void glTestBedBase::shaderSetup(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
 {
-    glTestBedBase* example = new glTestBedBase();
-    example->windowSetup(1280, 720, "Testing");
-    example->glSetup();
-    example->renderLoop();
-    
-    return 0;
+    if(geometryPath)
+        shader = new Shader(vertexPath, fragmentPath, geometryPath);
+    else
+        shader = new Shader(vertexPath, fragmentPath);
 }

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#include "Shader.h"
+
 
 class glTestBedBase
 {
@@ -29,8 +31,15 @@ public:
      */
     void renderLoop();
 
-    //setup shaders
+    /**
+     * @brief Loads shaders from files, compiles, links and attaches them to shader program
+     * @parameter Path to the vertex shader
+     * @parameter Path to the fragment shader
+     * @parameter Path to the geometry shader
+     */
+    void shaderSetup(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr);
 
 private:
     GLFWwindow* window;
+    Shader* shader;
 };
