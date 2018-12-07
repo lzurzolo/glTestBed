@@ -19,5 +19,5 @@ Demonstrates the diffuse lighting equation, *L = K<sub>d</sub>L<sub>d</sub>(s·n
 ![Example](https://github.com/lzurzolo/glTestBed/blob/master/examples/01_Diffuse_Shading/example_01.png)
 
 ## 02. Phong Shading
-Demonstrates the Phong reflection model, *I<sub>a</sub> = L<sub>a</sub>K<sub>a</sub>* utlizing 3 instances of the same Utah teapot with different material properties using per-vertex lighting. This showcases how the different materials respond when exposed to the same light source<br />
+Demonstrates the Phong reflection model, *I<sub></sub> = I<sub>a</sub> + I<sub>d</sub> + I<sub>s</sub>* utlizing 3 instances of the same Utah teapot with different material properties using per-vertex lighting. This showcases how the different materials respond when exposed to the same light source<br />
 ![Example](https://github.com/lzurzolo/glTestBed/blob/master/examples/02_Phong_Shading/example_02.png)
