@@ -17,7 +17,7 @@ MAIN = ../../bin/phongShading
 .PHONY: depend clean
 
 all: $(MAIN)
-	@echo diffuseShading has been compiled
+	@echo phongShading has been compiled
 
 $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)

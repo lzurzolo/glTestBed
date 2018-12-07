@@ -2,9 +2,35 @@
 
 phongShading::phongShading()
 {
-    viewPosition = glm::vec3(0.0f, 6.0f, 5.0f);
+    viewPosition = glm::vec3(0.0f, 8.0f, 7.0f);
     viewFront = glm::vec3(0.0f, -0.5f, -0.5f);
     viewUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    numberOfObjects = 3;
+    objectPositions.resize(numberOfObjects);
+    objectKds.resize(numberOfObjects);
+    objectKas.resize(numberOfObjects);
+    objectKss.resize(numberOfObjects);
+    objectShininess.resize(numberOfObjects);
+
+    objectPositions[0] = glm::vec3( 0.0f,  0.0f, 0.0f);
+    objectPositions[1] = glm::vec3( 5.0f,  0.0f, 0.0f);
+    objectPositions[2] = glm::vec3(-5.0f,  0.0f, 0.0f);
+
+    objectKas[0] = glm::vec3(0.8f, 0.8f, 0.8f);
+    objectKas[1] = glm::vec3(0.2f, 0.5f, 0.9f);
+    objectKas[2] = glm::vec3(0.8f, 0.3f, 0.4f);
+
+    objectKds[0] = glm::vec3(0.3f, 0.5f, 0.7f);
+    objectKds[1] = glm::vec3(0.5f, 0.6f, 0.2f);
+    objectKds[2] = glm::vec3(0.6f, 0.3f, 0.6f);
+
+    objectKss[0] = glm::vec3(0.4f, 0.5f, 0.0f);
+    objectKss[1] = glm::vec3(0.8f, 0.8f, 0.2f);
+    objectKss[2] = glm::vec3(0.3f, 0.9f, 0.2f);
+
+    objectShininess[0] = 50;
+    objectShininess[1] = 10;
+    objectShininess[2] = 120;
 }
 
 void phongShading::loadModel()
@@ -67,17 +93,24 @@ void phongShading::loadModel()
     glBindVertexArray(0);    
 }
 
-void phongShading::updateUniforms()
+void phongShading::updateUniforms(int index)
 {
-    shaders["diffuse_shading"]->use();
+    shaders["phong_shading"]->use();
 
     shaders["phong_shading"]->setVec4("LightPosition", glm::vec4(20.0f, 20.0f, 0.0f, 1.0f));
-    shaders["phong_shading"]->setVec3("Kd", glm::vec3(0.8f, 0.8f, 0.8f));
     shaders["phong_shading"]->setVec3("Ld", glm::vec3(1.0f, 0.0f, 1.0f));
+    shaders["phong_shading"]->setVec3("La", glm::vec3(0.5f, 0.9f, 0.5f));
+    shaders["phong_shading"]->setVec3("Ls", glm::vec3(0.5f, 0.0f, 1.0f));
+
     
+    shaders["phong_shading"]->setVec3("Kd", objectKds[index]);
+    shaders["phong_shading"]->setVec3("Ka", objectKas[index]);
+    shaders["phong_shading"]->setVec3("Ks", objectKss[index]);
+    shaders["phong_shading"]->setFloat("Shininess", objectShininess[index]);
+
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-    model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::translate(model, objectPositions[index]);
+    model = glm::rotate(model, (float)glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     glm::mat4 view = glm::lookAt(viewPosition, viewPosition + viewFront, viewUp);
     glm::mat4 projection = glm::perspective(45.0f, 1280.0f/720.0f, 0.1f, 100.0f);
     shaders["phong_shading"]->setMat4("Projection", projection);

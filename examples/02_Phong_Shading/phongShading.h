@@ -2,6 +2,7 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
 #include "../../src/public/glTestBedBase.h"
 #include "../../include/tiny_obj_loader.h"
 
@@ -25,7 +26,7 @@ public:
     /**
      * @brief Sets uniform variables for an attached shader
      */
-    void updateUniforms();
+    void updateUniforms(int index);
 
     /**
      * @brief Draws geometry
@@ -44,6 +45,12 @@ private:
     std::vector<Vertex> vertices;   //!< Geometry vertex data
     std::vector<uint32_t> indices;  //!< Geometry index data
 
+    std::vector<glm::vec3> objectPositions;
+    std::vector<glm::vec3> objectKds;
+    std::vector<glm::vec3> objectKas;
+    std::vector<glm::vec3> objectKss;
+    std::vector<float> objectShininess;
+
     // Uniforms
     glm::vec4 lightPosition;        //!< Position of a single light
     glm::vec3 kd;                   //!< Surface diffuse reflectivity
@@ -56,4 +63,5 @@ private:
     glm::mat4 modelViewProjection;  //!< Model View Projection matrix
     glm::mat4 normal;               //!< Normal matrix
     glm::mat4 projection;           //!< Projection matrix
+    float shininess;                //!< Material shininess
 };

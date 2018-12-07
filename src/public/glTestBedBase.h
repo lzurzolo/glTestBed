@@ -30,7 +30,7 @@ public:
     /**
      * @brief Updates uniform buffers
      */
-    virtual void updateUniforms() = 0; 
+    virtual void updateUniforms(int index = 0) = 0; 
 
     /**
      * @brief Begin GL Frame
@@ -66,7 +66,7 @@ public:
     float deltaTime;
     float lastFrame;
 
-    int numberOfObjects = 1;
+    int numberOfObjects;
 
 private:
     GLFWwindow* window; //!< A pointer to a GLFW window

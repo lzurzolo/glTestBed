@@ -49,7 +49,7 @@ void glTestBedBase::renderLoop()
         
         for(int i = 0; i < numberOfObjects; i++)
         {
-            updateUniforms();
+            updateUniforms(i);
             draw();
         }
 

@@ -5,6 +5,7 @@ diffuseShading::diffuseShading()
     viewPosition = glm::vec3(0.0f, 6.0f, 5.0f);
     viewFront = glm::vec3(0.0f, -0.5f, -0.5f);
     viewUp = glm::vec3(0.0f, 1.0f, 0.0f);
+    numberOfObjects = 1;
 }
 
 void diffuseShading::loadModel()
