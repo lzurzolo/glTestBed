@@ -1,5 +1,0 @@
-/home/lorenzo/programming/projects/c++/glTestBed/build/CMakeFiles/rebuild_cache.dir
-/home/lorenzo/programming/projects/c++/glTestBed/build/CMakeFiles/edit_cache.dir
-/home/lorenzo/programming/projects/c++/glTestBed/build/CMakeFiles/glTestBed.dir
-/home/lorenzo/programming/projects/c++/glTestBed/build/CMakeFiles/package_source.dir
-/home/lorenzo/programming/projects/c++/glTestBed/build/CMakeFiles/package.dir
