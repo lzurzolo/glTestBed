@@ -66,6 +66,8 @@ public:
     float deltaTime;
     float lastFrame;
 
+    int numberOfObjects = 1;
+
 private:
     GLFWwindow* window; //!< A pointer to a GLFW window
 };
