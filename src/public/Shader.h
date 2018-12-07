@@ -1,6 +1,7 @@
 #pragma once
 #include <GL/gl3w.h>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -9,7 +10,7 @@
 class Shader
 {
 public:
-    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr);
+    Shader(std::string vertexPath, std::string fragmentPath, std::string geometryPath = std::string());
     void use();
     void setBool(const std::string &name, bool value) const;
     void setInt(const std::string &name, int value) const;
@@ -28,5 +29,4 @@ public:
 
 private:
     void checkCompileErrors(GLuint shader, std::string type);
-
 };

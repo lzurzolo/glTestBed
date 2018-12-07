@@ -1,1 +1,1 @@
-/usr/bin/x86_64-linux-gnu-g++-7  -g  -rdynamic CMakeFiles/glTestBed.dir/main.cpp.o  -o glTestBed 
+/usr/bin/x86_64-linux-gnu-g++-7  -g  -rdynamic CMakeFiles/glTestBed.dir/src/private/Shader.cpp.o CMakeFiles/glTestBed.dir/src/private/glTestBedBase.cpp.o CMakeFiles/glTestBed.dir/lib/gl3w.c.o CMakeFiles/glTestBed.dir/lib/tiny_obj_loader.cpp.o CMakeFiles/glTestBed.dir/examples/01_Diffuse_Shading/private/diffuseShading.cpp.o  -o glTestBed -g -lglfw -ldl 

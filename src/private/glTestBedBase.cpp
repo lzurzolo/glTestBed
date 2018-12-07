@@ -41,16 +41,26 @@ void glTestBedBase::renderLoop()
 {
     while(!glfwWindowShouldClose(window))
     {
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+        
+        updateUniforms();
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        draw();
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     glfwTerminate();
 }
 
-void glTestBedBase::shaderSetup(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
+void glTestBedBase::shaderSetup(std::string shaderName, std::string vertexPath, std::string fragmentPath, std::string geometryPath)
 {
-    if(geometryPath)
-        shader = new Shader(vertexPath, fragmentPath, geometryPath);
+    if(geometryPath == std::string())
+        shaders[shaderName] = new Shader(vertexPath, fragmentPath, geometryPath);
     else
-        shader = new Shader(vertexPath, fragmentPath);
+        shaders[shaderName] = new Shader(vertexPath, fragmentPath);
 }

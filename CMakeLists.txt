@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(glTestBed)
 
 include_directories(src/*/public include/ examples/*/public)
-file(GLOB SOURCES "src/private/*.cpp" "lib/*.c" "examples/*/private/*.cpp")
+file(GLOB SOURCES "src/private/*.cpp" "lib/*.c" "lib/*.cpp" "examples/*/private/*.cpp")
 
 add_executable(glTestBed ${SOURCES})
 

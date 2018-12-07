@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lorenzo/programming/projects/c++/glTestBed/lib/gl3w.c
+GL/gl3w.h
+-
+stdlib.h
+-
+windows.h
+-
+dlfcn.h
+-
+dlfcn.h
+-
+
