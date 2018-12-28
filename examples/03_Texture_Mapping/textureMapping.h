@@ -2,25 +2,33 @@
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
 #include "../../src/public/glTestBedBase.h"
 #include "../../include/tiny_obj_loader.h"
+#include "../../include/stb_image.h"
 
 struct Vertex
 {
     glm::vec3 position;
     glm::vec3 normal;
+    glm::vec2 uv;
 };
 
-class diffuseShading : public glTestBedBase
+class textureMapping : public glTestBedBase
 {
 public:
-    diffuseShading();
-    ~diffuseShading() {}
+    textureMapping();
+    ~textureMapping() {}
 
     /**
      * @brief Loads model data from file and packs into VBO/VAO
      */
     void loadModel();
+
+    /**
+     * @brief Loads texture data from file and pack into buffer object
+     */ 
+    void loadTexture();
 
     /**
      * @brief Sets uniform variables for an attached shader
@@ -40,16 +48,12 @@ private:
     unsigned int VBO;               //!< A vertex buffer object
     unsigned int VAO;               //!< A vertex array object
     unsigned int EBO;               //!< An element array buffer object
-
+    unsigned int textureID;
+    
     std::vector<Vertex> vertices;   //!< Geometry vertex data
     std::vector<uint32_t> indices;  //!< Geometry index data
-
+    stbi_uc* pixels;
+    
     // Uniforms
-    glm::vec4 lightPosition;        //!< Position of a single light
-    glm::vec3 kd;                   //!< Surface diffuse reflectivity
-    glm::vec3 ld;                   //!< Diffuse light intensity
-    glm::mat4 modelView;            //!< Model View matrix
-    glm::mat4 modelViewProjection;  //!< Model View Projection matrix
-    glm::mat4 normal;               //!< Normal matrix
-    glm::mat4 projection;           //!< Projection matrix
+    glm::mat4 modelViewProjection;
 };

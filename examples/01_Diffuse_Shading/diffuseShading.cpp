@@ -68,7 +68,7 @@ void diffuseShading::loadModel()
     glBindVertexArray(0);
 }
 
-void diffuseShading::updateUniforms()
+void diffuseShading::updateUniforms(int index)
 {
     shaders["diffuse_shading"]->use();
 
