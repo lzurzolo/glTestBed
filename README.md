@@ -21,3 +21,7 @@ Demonstrates the diffuse lighting equation, *L = K<sub>d</sub>L<sub>d</sub>(s·n
 ## 02. Phong Shading
 Demonstrates the Phong reflection model, *I<sub></sub> = I<sub>a</sub> + I<sub>d</sub> + I<sub>s</sub>* utlizing 3 instances of the same Utah teapot with different material properties using per-vertex lighting. This showcases how the different materials respond when exposed to the same light source<br />
 ![Example](https://github.com/lzurzolo/glTestBed/blob/master/examples/02_Phong_Shading/example_02.png)
+
+## 03. Texture Mapping
+Demonstrates basic texture mapping. This example utilizes a single diffuse texture mapped to a cube.
+![Example](https://github.com/lzurzolo/glTestBed/blob/master/examples/03_Texture_Mapping/example_03.png)
